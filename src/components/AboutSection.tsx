@@ -1,5 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { GraduationCap, Award, Code, Users } from 'lucide-react';
+import aboutImage from '@/assets/ankur-about.jpg';
 
 const AboutSection = () => {
   const education = [
@@ -45,8 +46,8 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+          <div className="lg:col-span-2">
             <h3 className="text-2xl font-semibold text-foreground mb-6">My Story</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
@@ -64,29 +65,43 @@ const AboutSection = () => {
                 solutions, always keeping the end-user experience at the center of my work.
               </p>
             </div>
+
+            <div className="mt-8">
+              <h4 className="text-xl font-semibold text-foreground mb-4">Skills & Expertise</h4>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {skills.map((skill, index) => (
+                  <span 
+                    key={index}
+                    className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              
+              <div className="flex items-center space-x-6 text-sm text-muted-foreground">
+                <div className="flex items-center">
+                  <Users className="h-4 w-4 mr-1 text-primary" />
+                  Team Player
+                </div>
+                <div className="flex items-center">
+                  <Code className="h-4 w-4 mr-1 text-primary" />
+                  Problem Solver
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-2xl font-semibold text-foreground mb-6">Skills & Expertise</h3>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {skills.map((skill, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-            
-            <div className="flex items-center space-x-6 text-sm text-muted-foreground">
-              <div className="flex items-center">
-                <Users className="h-4 w-4 mr-1 text-primary" />
-                Team Player
-              </div>
-              <div className="flex items-center">
-                <Code className="h-4 w-4 mr-1 text-primary" />
-                Problem Solver
+          <div className="flex justify-center">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-primary/10 rounded-2xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative">
+                <img 
+                  src={aboutImage} 
+                  alt="Ankur Kanaujiya - About" 
+                  className="w-full max-w-sm rounded-2xl shadow-2xl border-2 border-primary/20 group-hover:border-primary/40 transition-all duration-500 transform group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent rounded-2xl"></div>
               </div>
             </div>
           </div>
