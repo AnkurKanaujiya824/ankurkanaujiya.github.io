@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankur Kanaujiya - Data Analytics Specialist & Web Developer</title>
+    <meta name="description" content="Portfolio of Ankur Kanaujiya - Data Analytics Specialist, Web Developer, and AI Engineer. Transforming data into insights and creating digital experiences.">
+    <meta name="author" content="Ankur Kanaujiya">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Ankur Kanaujiya - Portfolio">
+    <meta property="og:description" content="Data Analytics Specialist & Web Developer Portfolio">
+    <meta property="og:type" content="website">
+    
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Dark theme color palette */
+            --background: 222.2deg 84% 4.9%;
+            --foreground: 210deg 40% 98%;
+            --card: 222.2deg 84% 4.9%;
+            --card-foreground: 210deg 40% 98%;
+            --popover: 222.2deg 84% 4.9%;
+            --popover-foreground: 210deg 40% 98%;
+            --primary: 0deg 72.2% 50.6%;
+            --primary-foreground: 210deg 40% 98%;
+            --secondary: 217.2deg 32.6% 17.5%;
+            --secondary-foreground: 210deg 40% 98%;
+            --muted: 217.2deg 32.6% 17.5%;
+            --muted-foreground: 215deg 20.2% 65.1%;
+            --accent: 217.2deg 32.6% 17.5%;
+            --accent-foreground: 210deg 40% 98%;
+            --destructive: 0deg 62.8% 30.6%;
+            --destructive-foreground: 210deg 40% 98%;
+            --border: 217.2deg 32.6% 17.5%;
+            --input: 217.2deg 32.6% 17.5%;
+            --ring: 212.7deg 26.8% 83.9%;
+            --radius: 0.75rem;
+
+            /* Portfolio specific gradients */
+            --hero-gradient: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(217.2deg 32.6% 12%) 50%, hsl(var(--background)) 100%);
+            --card-gradient: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(217.2deg 32.6% 6%) 100%);
+            --text-gradient: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary)) 50%, hsl(0deg 72.2% 60%) 100%);
+            
+            /* Shadows */
+            --shadow-card: 0 10px 30px -10px hsl(var(--primary) / 0.1);
+            --shadow-card-hover: 0 20px 40px -10px hsl(var(--primary) / 0.2);
+            --shadow-accent-glow: 0 0 30px hsl(var(--primary) / 0.3);
+            
+            /* Transitions */
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: hsl(var(--background) / 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid hsl(var(--border));
+            padding: 16px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: hsl(var(--primary));
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: hsl(var(--primary));
+        }
+
+        .nav-cta {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            padding: 8px 20px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            background: hsl(var(--primary) / 0.9);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: hsl(var(--foreground));
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid hsl(var(--border));
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--hero-gradient);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+        }
+
+        .hero-bg-element {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .hero-bg-element:nth-child(1) {
+            top: 80px;
+            left: 40px;
+            width: 128px;
+            height: 128px;
+            background: hsl(var(--primary));
+        }
+
+        .hero-bg-element:nth-child(2) {
+            bottom: 80px;
+            right: 40px;
+            width: 160px;
+            height: 160px;
+            background: hsl(var(--primary) / 0.5);
+            animation-delay: 1s;
+        }
+
+        .hero-bg-element:nth-child(3) {
+            top: 50%;
+            left: 33%;
+            width: 96px;
+            height: 96px;
+            background: hsl(var(--primary) / 0.3);
+            animation-delay: 0.5s;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: hsl(var(--primary) / 0.1);
+            border: 1px solid hsl(var(--primary) / 0.2);
+            border-radius: 50px;
+            color: hsl(var(--primary));
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .gradient-text {
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            color: hsl(var(--muted-foreground));
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: hsl(var(--muted-foreground) / 0.9);
+            max-width: 500px;
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8));
+            color: hsl(var(--primary-foreground));
+            box-shadow: var(--shadow-card);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--primary) / 0.7));
+            box-shadow: var(--shadow-card-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid hsl(var(--primary) / 0.3);
+            background: hsl(var(--background) / 0.5);
+            backdrop-filter: blur(4px);
+            color: hsl(var(--foreground));
+        }
+
+        .btn-outline:hover {
+            background: hsl(var(--primary) / 0.05);
+            border-color: hsl(var(--primary) / 0.5);
+        }
+
+        /* Hero Image */
+        .hero-image {
+            display: flex;
+            justify-center;
+            position: relative;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+        }
+
+        .hero-image-glow {
+            position: absolute;
+            inset: -32px;
+            background: linear-gradient(135deg, hsl(var(--primary) / 0.3), transparent);
+            border-radius: 50%;
+            filter: blur(32px);
+            opacity: 0.75;
+            transition: var(--transition-smooth);
+        }
+
+        .hero-image-container:hover .hero-image-glow {
+            opacity: 1;
+        }
+
+        .hero-image-border {
+            position: absolute;
+            inset: -16px;
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.5));
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: spin 20s linear infinite;
+        }
+
+        .hero-profile {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid hsl(var(--primary) / 0.3);
+            box-shadow: var(--shadow-card-hover);
+            transition: var(--transition-smooth);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-profile:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-float-element {
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        .hero-float-1 {
+            top: -24px;
+            right: -24px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.7));
+            font-size: 2rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .hero-float-2 {
+            bottom: -16px;
+            left: -16px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, hsl(var(--primary) / 0.8), hsl(var(--primary) / 0.6));
+            color: hsl(var(--primary-foreground));
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-particle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: hsl(var(--primary));
+            border-radius: 50%;
+            animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        .hero-particle:nth-child(1) {
+            top: 25%;
+            left: -32px;
+            animation-delay: 0.7s;
+        }
+
+        .hero-particle:nth-child(2) {
+            top: 75%;
+            right: -32px;
+            width: 8px;
+            height: 8px;
+            animation-delay: 1s;
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--card-gradient);
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .card-content {
+            padding: 32px;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+        /* About Section */
+        .about {
+            background: hsl(var(--background));
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .skill-tag {
+            padding: 4px 12px;
+            background: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+            border-radius: 50px;
+            font-size: 0.875rem;
+        }
+
+        .about-image {
+            display: flex;
+            justify-center;
+        }
+
+        .about-image-container {
+            position: relative;
+            max-width: 400px;
+        }
+
+        .about-image-glow {
+            position: absolute;
+            inset: -16px;
+            background: linear-gradient(135deg, hsl(var(--primary) / 0.2), transparent);
+            border-radius: 16px;
+            filter: blur(32px);
+            opacity: 0.75;
+            transition: var(--transition-smooth);
+        }
+
+        .about-image-container:hover .about-image-glow {
+            opacity: 1;
+        }
+
+        .about-photo {
+            width: 100%;
+            border-radius: 16px;
+            border: 2px solid hsl(var(--primary) / 0.2);
+            box-shadow: var(--shadow-card-hover);
+            transition: var(--transition-smooth);
+        }
+
+        .about-photo:hover {
+            transform: scale(1.05);
+            border-color: hsl(var(--primary) / 0.4);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: hsl(var(--secondary) / 0.3);
+        }
+
+        .project-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .project-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+        }
+
+        .project-status {
+            padding: 4px 8px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-completed {
+            background: hsl(142deg 76% 36% / 0.2);
+            color: hsl(142deg 76% 56%);
+        }
+
+        .status-development {
+            background: hsl(48deg 96% 53% / 0.2);
+            color: hsl(48deg 96% 53%);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: hsl(var(--card-foreground));
+            margin-bottom: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:hover .project-title {
+            color: hsl(var(--primary));
+        }
+
+        .project-category {
+            font-size: 0.875rem;
+            color: hsl(var(--primary));
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .project-features {
+            margin-bottom: 24px;
+        }
+
+        .features-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: hsl(var(--card-foreground));
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .features-list li:before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: hsl(var(--primary));
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tech-tag {
+            padding: 4px 12px;
+            background: hsl(var(--primary) / 0.1);
+            color: hsl(var(--primary));
+            border: 1px solid hsl(var(--primary) / 0.2);
+            border-radius: 50px;
+            font-size: 0.75rem;
+        }
+
+        .project-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.875rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: hsl(var(--background));
+        }
+
+        .service-icon {
+            color: hsl(var(--primary));
+            margin-bottom: 16px;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: hsl(var(--card-foreground));
+            margin-bottom: 12px;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-title {
+            color: hsl(var(--primary));
+        }
+
+        .service-description {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .service-features {
+            margin-bottom: 16px;
+        }
+
+        .service-features h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: hsl(var(--card-foreground));
+            margin-bottom: 12px;
+        }
+
+        .service-features ul {
+            list-style: none;
+        }
+
+        .service-features li {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .service-features li:before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: hsl(var(--primary));
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .strengths-section {
+            background: var(--card-gradient);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid hsl(var(--border));
+            margin-top: 64px;
+        }
+
+        .strengths-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .strength-item {
+            text-align: center;
+        }
+
+        .strength-icon {
+            color: hsl(var(--primary));
+            margin-bottom: 12px;
+            transition: var(--transition-smooth);
+        }
+
+        .strength-item:hover .strength-icon {
+            transform: scale(1.1);
+        }
+
+        .strength-title {
+            font-weight: 600;
+            color: hsl(var(--card-foreground));
+            margin-bottom: 8px;
+        }
+
+        .strength-description {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .tools-section {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .tools-container {
+            display: inline-block;
+            background: hsl(var(--secondary));
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .tools-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: 8px;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: hsl(var(--secondary) / 0.3);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: 24px;
+        }
+
+        .contact-description {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .contact-methods {
+            margin-bottom: 32px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--card-gradient);
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            text-decoration: none;
+            color: hsl(var(--card-foreground));
+            transition: var(--transition-smooth);
+        }
+
+        .contact-method:hover {
+            color: hsl(var(--primary));
+            box-shadow: var(--shadow-card-hover);
+            transform: translateY(-2px);
+        }
+
+        .contact-method-icon {
+            color: hsl(var(--primary));
+            transition: var(--transition-smooth);
+        }
+
+        .contact-method:hover .contact-method-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-method-info p:first-child {
+            font-weight: 500;
+        }
+
+        .contact-method-info p:last-child {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .quick-info {
+            background: var(--card-gradient);
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .quick-info h4 {
+            font-weight: 600;
+            color: hsl(var(--card-foreground));
+            margin-bottom: 16px;
+        }
+
+        .quick-info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.875rem;
+            margin-bottom: 12px;
+        }
+
+        .quick-info-icon {
+            color: hsl(var(--primary));
+        }
+
+        .quick-info-label {
+            color: hsl(var(--muted-foreground));
+        }
+
+        .quick-info-value {
+            color: hsl(var(--card-foreground));
+            font-weight: 500;
+        }
+
+        .contact-cta {
+            background: var(--card-gradient);
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            height: fit-content;
+        }
+
+        .cta-icon {
+            width: 64px;
+            height: 64px;
+            background: hsl(var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: var(--shadow-accent-glow);
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: hsl(var(--card-foreground));
+            margin-bottom: 16px;
+        }
+
+        .cta-description {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons .btn {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        .social-section {
+            padding-top: 24px;
+            border-top: 1px solid hsl(var(--border));
+        }
+
+        .social-title {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: none;
+            border: none;
+            color: hsl(var(--muted-foreground));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            color: hsl(var(--primary));
+            transform: scale(1.1);
+        }
+
+        .contact-tip {
+            text-align: center;
+        }
+
+        .tip-card {
+            display: inline-block;
+            background: var(--card-gradient);
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .tip-text {
+            color: hsl(var(--muted-foreground));
+        }
+
+        .tip-highlight {
+            color: hsl(var(--primary));
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 32px 0;
+            background: hsl(var(--card));
+            border-top: 1px solid hsl(var(--border));
+            text-align: center;
+        }
+
+        .footer-text {
+            color: hsl(var(--muted-foreground));
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+                justify-content: center;
+            }
+
+            .hero-description {
+                font-size: 1.125rem;
+            }
+
+            .hero-image-container {
+                width: 280px;
+                height: 280px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .grid-cols-2,
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-image-container {
+                width: 240px;
+                height: 240px;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 16px; }
+        .mb-6 { margin-bottom: 24px; }
+        .mb-8 { margin-bottom: 32px; }
+        .mt-8 { margin-top: 32px; }
+        .mt-12 { margin-top: 48px; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .gap-2 { gap: 8px; }
+        .gap-4 { gap: 16px; }
+        .w-full { width: 100%; }
+        .h-6 { height: 24px; }
+        .w-6 { width: 24px; }
+        .h-8 { height: 32px; }
+        .w-8 { width: 32px; }
+        .rounded-full { border-radius: 50%; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#home" class="nav-brand">AK Portfolio</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <a href="#home" class="nav-link" onclick="scrollToSection('home')">Home</a>
+                    <a href="#about" class="nav-link" onclick="scrollToSection('about')">About</a>
+                    <a href="#portfolio" class="nav-link" onclick="scrollToSection('portfolio')">Portfolio</a>
+                    <a href="#services" class="nav-link" onclick="scrollToSection('services')">Services</a>
+                    <button class="nav-cta" onclick="scrollToSection('contact')">Let's Talk</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobileNav">
+                <a href="#home" class="nav-link" onclick="scrollToSection('home'); toggleMobileMenu()">Home</a>
+                <a href="#about" class="nav-link" onclick="scrollToSection('about'); toggleMobileMenu()">About</a>
+                <a href="#portfolio" class="nav-link" onclick="scrollToSection('portfolio'); toggleMobileMenu()">Portfolio</a>
+                <a href="#services" class="nav-link" onclick="scrollToSection('services'); toggleMobileMenu()">Services</a>
+                <button class="nav-cta" onclick="scrollToSection('contact'); toggleMobileMenu()">Let's Talk</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Animated background elements -->
+        <div class="hero-bg">
+            <div class="hero-bg-element"></div>
+            <div class="hero-bg-element"></div>
+            <div class="hero-bg-element"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text animate-fade-in">
+                    <div class="hero-badge">
+                        <span style="font-size: 1rem;">✨</span>
+                        Available for exciting projects
+                    </div>
+                    
+                    <div>
+                        <span style="color: hsl(var(--primary)); font-size: 1.25rem; font-weight: 500; tracking: 0.025em;">Hello, I'm</span>
+                        <h1 class="hero-title">
+                            Ankur<br>
+                            <span class="gradient-text">Kanaujiya</span>
+                        </h1>
+                    </div>
+                    
+                    <h2 class="hero-subtitle">
+                        <span class="flex items-center gap-2">
+                            <span style="width: 32px; height: 32px; color: hsl(var(--primary));">💻</span>
+                            Data Analytics Specialist
+                        </span>
+                        <span style="color: hsl(var(--primary) / 0.8);">&</span> Web Developer
+                    </h2>
+                    
+                    <p class="hero-description">
+                        Transforming complex data into actionable insights and crafting digital experiences that bridge 
+                        <span style="color: hsl(var(--primary)); font-weight: 500;"> creativity with functionality</span>.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('portfolio')">
+                            <span>View My Work</span>
+                            <span style="margin-left: 8px;">→</span>
+                        </button>
+                        
+                        <button class="btn btn-outline">
+                            <span style="margin-right: 8px;">⬇</span>
+                            <span>Download CV</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-image animate-fade-in">
+                    <div class="hero-image-container">
+                        <!-- Outer glow ring -->
+                        <div class="hero-image-glow"></div>
+                        
+                        <!-- Rotating border -->
+                        <div class="hero-image-border"></div>
+                        
+                        <!-- Main image container -->
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgdmlld0JveD0iMCAwIDMyMCAzMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMzIwIiByeD0iMTYwIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPgo8dGV4dCB4PSIxNjAiIHk9IjE3MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFLPC90ZXh0Pgo8ZGVmcz4KPGC0YWRpZW50SWQgaWQ9ImdyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6aHNsKDBkZWcgNzIuMiUgNTAuNiUpO3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOmhzbCgwZGVnIDcyLjIlIDQwLjYlKTtzdG9wLW9wYWNpdHk6MSIgLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" 
+                             alt="Ankur Kanaujiya" 
+                             class="hero-profile" />
+                        
+                        <!-- Floating elements -->
+                        <div class="hero-float-element hero-float-1">
+                            <span>👋</span>
+                        </div>
+                        
+                        <div class="hero-float-element hero-float-2">
+                            <span style="font-size: 1.5rem;">💻</span>
+                        </div>
+                        
+                        <!-- Floating particles -->
+                        <div class="hero-particle"></div>
+                        <div class="hero-particle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-description">
+                    Passionate about creativity, collaboration, and problem-solving through technology
+                </p>
+            </div>
+
+            <div class="grid grid-cols-3 mb-8">
+                <div style="grid-column: span 2;">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; color: hsl(var(--foreground)); margin-bottom: 24px;">My Story</h3>
+                    <div style="color: hsl(var(--muted-foreground)); line-height: 1.6; margin-bottom: 32px;">
+                        <p style="margin-bottom: 16px;">
+                            I'm Ankur Kanaujiya, a passionate data analytics specialist and web developer 
+                            currently pursuing my B.Tech in Computer Science. My journey in technology is 
+                            driven by curiosity and a genuine love for creating solutions that matter.
+                        </p>
+                        <p style="margin-bottom: 16px;">
+                            I believe in the power of collaboration and meaningful connections. Whether 
+                            it's analyzing complex datasets to uncover insights or building intuitive 
+                            web applications, I approach every project with creativity and attention to detail.
+                        </p>
+                        <p>
+                            My goal is to bridge the gap between technical complexity and user-friendly 
+                            solutions, always keeping the end-user experience at the center of my work.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 style="font-size: 1.25rem; font-weight: 600; color: hsl(var(--foreground)); margin-bottom: 16px;">Skills & Expertise</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Data Analytics</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Strategic Thinking</span>
+                            <span class="skill-tag">Communication</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-4" style="font-size: 0.875rem; color: hsl(var(--muted-foreground));">
+                            <div class="flex items-center">
+                                <span style="color: hsl(var(--primary)); margin-right: 4px;">👥</span>
+                                Team Player
+                            </div>
+                            <div class="flex items-center">
+                                <span style="color: hsl(var(--primary)); margin-right: 4px;">💻</span>
+                                Problem Solver
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <div class="about-image-container">
+                        <div class="about-image-glow"></div>
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiByeD0iMTYiIGZpbGw9InVybCgjZ3JhZGllbnQyKSIvPgo8dGV4dCB4PSIyMDAiIHk9IjE2MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFib3V0IFBob3RvPC90ZXh0Pgo8ZGVmcz4KPGC0YWRpZW50SWQgaWQ9ImdyYWRpZW50MiIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOmhzbCgwZGVnIDcyLjIlIDUwLjYlKTtzdG9wLW9wYWNpdHk6MSIgLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjpoc2woMGRlZyA3Mi4yJSAzMC42JSk7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==" 
+                             alt="Ankur Kanaujiya - About" 
+                             class="about-photo" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 mb-8">
+                <div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; color: hsl(var(--foreground)); margin-bottom: 24px; display: flex; align-items: center;">
+                        <span style="color: hsl(var(--primary)); margin-right: 8px;">🎓</span>
+                        Education
+                    </h3>
+                    <div style="margin-bottom: 16px;">
+                        <div class="card">
+                            <div class="card-content" style="padding: 24px;">
+                                <h4 style="font-weight: 600; color: hsl(var(--card-foreground));">B.Tech in Computer Science</h4>
+                                <p style="color: hsl(var(--muted-foreground));">SR Institute of Management & Technology, Lucknow</p>
+                                <div class="flex" style="justify-content: space-between; align-items: center; margin-top: 8px;">
+                                    <span style="font-size: 0.875rem; color: hsl(var(--muted-foreground));">2022-2026</span>
+                                    <span style="font-size: 0.75rem; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); padding: 4px 8px; border-radius: var(--radius);">
+                                        Pursuing
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <div class="card-content" style="padding: 24px;">
+                                <h4 style="font-weight: 600; color: hsl(var(--card-foreground));">Intermediate & High School</h4>
+                                <p style="color: hsl(var(--muted-foreground));">Shri Ramlala | C, Kanpur</p>
+                                <div class="flex" style="justify-content: space-between; align-items: center; margin-top: 8px;">
+                                    <span style="font-size: 0.875rem; color: hsl(var(--muted-foreground));">Completed</span>
+                                    <span style="font-size: 0.75rem; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); padding: 4px 8px; border-radius: var(--radius);">
+                                        Graduated
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; color: hsl(var(--foreground)); margin-bottom: 24px; display: flex; align-items: center;">
+                        <span style="color: hsl(var(--primary)); margin-right: 8px;">🏆</span>
+                        Certifications
+                    </h3>
+                    <div style="margin-bottom: 16px;">
+                        <div class="card">
+                            <div class="card-content" style="padding: 24px;">
+                                <div class="flex" style="align-items: flex-start; gap: 12px;">
+                                    <div style="color: hsl(var(--primary));">🏆</div>
+                                    <div>
+                                        <h4 style="font-weight: 600; color: hsl(var(--card-foreground)); margin-bottom: 8px;">Data Analytics Certificate</h4>
+                                        <p style="font-size: 0.875rem; color: hsl(var(--muted-foreground)); line-height: 1.6;">
+                                            Proficiency in analyzing data, interpreting results, and applying insights using Python and SQL
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <div class="card-content" style="padding: 24px;">
+                                <div class="flex" style="align-items: flex-start; gap: 12px;">
+                                    <div style="color: hsl(var(--primary));">💻</div>
+                                    <div>
+                                        <h4 style="font-weight: 600; color: hsl(var(--card-foreground)); margin-bottom: 8px;">AI Engineer Certificate</h4>
+                                        <p style="font-size: 0.875rem; color: hsl(var(--muted-foreground)); line-height: 1.6;">
+                                            Foundational knowledge in AI concepts, machine learning, neural networks, and model development
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Portfolio</h2>
+                <p class="section-description">
+                    Showcasing projects that demonstrate my passion for creating functional and user-friendly solutions
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2">
+                <!-- Project 1: Library Management System -->
+                <div class="card project-card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <div class="project-date">
+                                <span style="color: hsl(var(--primary));">📅</span>
+                                <span>2024</span>
+                            </div>
+                            <span class="project-status status-completed">
+                                Completed
+                            </span>
+                        </div>
+                        
+                        <h3 class="project-title">Library Management System</h3>
+                        
+                        <p class="project-category">Desktop Application</p>
+                        
+                        <p class="project-description">
+                            A comprehensive library management system built to streamline book cataloging, user management, and lending operations. Features include search functionality, user authentication, and detailed reporting.
+                        </p>
+
+                        <div class="project-features">
+                            <h4 class="features-title">
+                                <span style="color: hsl(var(--primary));">💻</span>
+                                Key Features
+                            </h4>
+                            <ul class="features-list">
+                                <li>Book catalog management</li>
+                                <li>User registration & authentication</li>
+                                <li>Lending & return tracking</li>
+                                <li>Search & filter functionality</li>
+                                <li>Administrative dashboard</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 0.875rem; font-weight: 600; color: hsl(var(--card-foreground)); margin-bottom: 12px;">Technologies Used</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+
+                        <div class="project-buttons">
+                            <button class="btn btn-outline btn-sm" style="flex: 1;">
+                                <span style="margin-right: 8px;">📁</span>
+                                View Code
+                            </button>
+                            <button class="btn btn-primary btn-sm" style="flex: 1;">
+                                <span style="margin-right: 8px;">🔗</span>
+                                Live Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: E-commerce Website -->
+                <div class="card project-card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <div class="project-date">
+                                <span style="color: hsl(var(--primary));">📅</span>
+                                <span>2025</span>
+                            </div>
+                            <span class="project-status status-development">
+                                In Development
+                            </span>
+                        </div>
+                        
+                        <h3 class="project-title">E-commerce Website</h3>
+                        
+                        <p class="project-category">Web Application</p>
+                        
+                        <p class="project-description">
+                            A modern e-commerce platform designed with user experience at its core. Includes product management, shopping cart functionality, secure payment integration, and responsive design.
+                        </p>
+
+                        <div class="project-features">
+                            <h4 class="features-title">
+                                <span style="color: hsl(var(--primary));">💻</span>
+                                Key Features
+                            </h4>
+                            <ul class="features-list">
+                                <li>Product catalog & management</li>
+                                <li>Shopping cart & checkout</li>
+                                <li>User account management</li>
+                                <li>Order tracking system</li>
+                                <li>Responsive design</li>
+                                <li>Payment integration</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 0.875rem; font-weight: 600; color: hsl(var(--card-foreground)); margin-bottom: 12px;">Technologies Used</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">SQL</span>
+                            </div>
+                        </div>
+
+                        <div class="project-buttons">
+                            <button class="btn btn-outline btn-sm" style="flex: 1;">
+                                <span style="margin-right: 8px;">📁</span>
+                                View Code
+                            </button>
+                            <button class="btn btn-primary btn-sm" style="flex: 1;">
+                                <span style="margin-right: 8px;">🔗</span>
+                                Live Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p style="color: hsl(var(--muted-foreground)); margin-bottom: 16px;">
+                    Interested in seeing more of my work?
+                </p>
+                <button class="btn btn-outline" style="padding: 12px 24px; border-color: hsl(var(--primary)); color: hsl(var(--primary));">
+                    <span style="margin-right: 8px;">📁</span>
+                    View All Projects on GitHub
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Services</h2>
+                <p class="section-description">
+                    Specialized in data analytics and web development with a focus on delivering 
+                    strategic insights and user-centered solutions
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 mb-8">
+                <!-- Service 1: Data Analytics -->
+                <div class="card service-card">
+                    <div class="card-content">
+                        <div class="service-icon">
+                            <span style="font-size: 2rem;">📊</span>
+                        </div>
+                        <h3 class="service-title">Data Analytics</h3>
+                        <p class="service-description">
+                            Transform raw data into actionable insights using advanced analytical techniques and statistical methods.
+                        </p>
+
+                        <div class="service-features">
+                            <h4>What I Offer:</h4>
+                            <ul>
+                                <li>Data cleaning & preprocessing</li>
+                                <li>Statistical analysis & modeling</li>
+                                <li>Data visualization & reporting</li>
+                                <li>Trend analysis & forecasting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Database Management -->
+                <div class="card service-card">
+                    <div class="card-content">
+                        <div class="service-icon">
+                            <span style="font-size: 2rem;">🗄️</span>
+                        </div>
+                        <h3 class="service-title">Database Management</h3>
+                        <p class="service-description">
+                            Design and optimize database systems for efficient data storage, retrieval, and management.
+                        </p>
+
+                        <div class="service-features">
+                            <h4>What I Offer:</h4>
+                            <ul>
+                                <li>Database design & optimization</li>
+                                <li>SQL query development</li>
+                                <li>Data modeling & architecture</li>
+                                <li>Performance tuning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Web Development -->
+                <div class="card service-card">
+                    <div class="card-content">
+                        <div class="service-icon">
+                            <span style="font-size: 2rem;">💻</span>
+                        </div>
+                        <h3 class="service-title">Web Development</h3>
+                        <p class="service-description">
+                            Create responsive and user-friendly web applications with modern technologies and best practices.
+                        </p>
+
+                        <div class="service-features">
+                            <h4>What I Offer:</h4>
+                            <ul>
+                                <li>Frontend development</li>
+                                <li>Responsive design</li>
+                                <li>User experience optimization</li>
+                                <li>Cross-browser compatibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: AI & Machine Learning -->
+                <div class="card service-card">
+                    <div class="card-content">
+                        <div class="service-icon">
+                            <span style="font-size: 2rem;">🧠</span>
+                        </div>
+                        <h3 class="service-title">AI & Machine Learning</h3>
+                        <p class="service-description">
+                            Implement AI solutions and machine learning models to solve complex business problems.
+                        </p>
+
+                        <div class="service-features">
+                            <h4>What I Offer:</h4>
+                            <ul>
+                                <li>Machine learning model development</li>
+                                <li>Neural network implementation</li>
+                                <li>AI algorithm optimization</li>
+                                <li>Predictive analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="strengths-section">
+                <div class="strengths-header">
+                    <h3 style="font-size: 1.5rem; font-weight: bold; color: hsl(var(--card-foreground)); margin-bottom: 16px;">Why Work With Me?</h3>
+                    <p style="color: hsl(var(--muted-foreground));">
+                        I bring a unique combination of technical expertise and strategic thinking to every project
+                    </p>
+                </div>
+
+                <div class="strengths-grid">
+                    <div class="strength-item">
+                        <div class="strength-icon">
+                            <span style="font-size: 1.5rem;">📈</span>
+                        </div>
+                        <h4 class="strength-title">Strategic Thinking</h4>
+                        <p class="strength-description">Approach problems with a strategic mindset to deliver long-term value</p>
+                    </div>
+
+                    <div class="strength-item">
+                        <div class="strength-icon">
+                            <span style="font-size: 1.5rem;">📝</span>
+                        </div>
+                        <h4 class="strength-title">Clear Communication</h4>
+                        <p class="strength-description">Present complex technical concepts in an understandable way</p>
+                    </div>
+
+                    <div class="strength-item">
+                        <div class="strength-icon">
+                            <span style="font-size: 1.5rem;">🎯</span>
+                        </div>
+                        <h4 class="strength-title">Attention to Detail</h4>
+                        <p class="strength-description">Ensure accuracy and precision in every aspect of data analysis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tools-section">
+                <div class="tools-container">
+                    <h4 class="tools-title">Tools & Technologies</h4>
+                    <div class="tools-list">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Data Modeling</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-description">
+                    Have a project in mind or want to discuss opportunities? 
+                    I'd love to hear from you and explore how we can work together.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p class="contact-description">
+                        I'm always excited to connect with like-minded professionals and discuss new opportunities. 
+                        Whether you have a project, a collaboration idea, or just want to say hello, feel free to reach out!
+                    </p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:kanaujiya824@gmail.com" class="contact-method">
+                            <div class="contact-method-icon">
+                                <span style="font-size: 1.5rem;">📧</span>
+                            </div>
+                            <div class="contact-method-info">
+                                <p>Email</p>
+                                <p>kanaujiya824@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <a href="tel:+918303397151" class="contact-method">
+                            <div class="contact-method-icon">
+                                <span style="font-size: 1.5rem;">📞</span>
+                            </div>
+                            <div class="contact-method-info">
+                                <p>Phone</p>
+                                <p>+91 8303397151</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.instagram.com/the_only_ankur?ighs=NHZwOX4eXFscmVu" target="_blank" class="contact-method">
+                            <div class="contact-method-icon">
+                                <span style="font-size: 1.5rem;">📷</span>
+                            </div>
+                            <div class="contact-method-info">
+                                <p>Instagram</p>
+                                <p>@the_only_ankur</p>
+                            </div>
+                        </a>
+
+                        <a href="https://in.linkedin.com/in/ankur-kanaujiya-34356b350" target="_blank" class="contact-method">
+                            <div class="contact-method-icon">
+                                <span style="font-size: 1.5rem;">💼</span>
+                            </div>
+                            <div class="contact-method-info">
+                                <p>LinkedIn</p>
+                                <p>Ankur Kanaujiya</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="quick-info">
+                        <h4>Quick Info</h4>
+                        <div class="quick-info-item">
+                            <div class="quick-info-icon">📍</div>
+                            <span class="quick-info-label">Location:</span>
+                            <span class="quick-info-value">Lucknow, India</span>
+                        </div>
+                        <div class="quick-info-item">
+                            <div class="quick-info-icon">📧</div>
+                            <span class="quick-info-label">Response Time:</span>
+                            <span class="quick-info-value">Within 24 hours</span>
+                        </div>
+                        <div class="quick-info-item">
+                            <div class="quick-info-icon">📞</div>
+                            <span class="quick-info-label">Availability:</span>
+                            <span class="quick-info-value">Mon-Sat, 9AM-6PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact CTA -->
+                <div class="contact-cta">
+                    <div class="cta-icon">
+                        <span style="color: white; font-size: 2rem;">📤</span>
+                    </div>
+                    
+                    <h3 class="cta-title">Ready to Start a Project?</h3>
+                    
+                    <p class="cta-description">
+                        I'm currently available for new projects and collaborations. 
+                        Let's discuss your ideas and turn them into reality together.
+                    </p>
+
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="window.open('mailto:kanaujiya824@gmail.com', '_blank')">
+                            <span style="margin-right: 8px;">📧</span>
+                            Send me an Email
+                            <span style="margin-left: 8px;">📤</span>
+                        </button>
+                        
+                        <button class="btn btn-outline" onclick="window.open('tel:+918303397151', '_blank')">
+                            <span style="margin-right: 8px;">📞</span>
+                            Give me a Call
+                        </button>
+                    </div>
+
+                    <div class="social-section">
+                        <p class="social-title">Follow me on social media</p>
+                        <div class="social-links">
+                            <button class="social-link" onclick="window.open('https://in.linkedin.com/in/ankur-kanaujiya-34356b350', '_blank')">
+                                <span style="font-size: 1.25rem;">💼</span>
+                            </button>
+                            <button class="social-link" onclick="window.open('https://www.instagram.com/the_only_ankur?ighs=NHZwOX4eXFscmVu', '_blank')">
+                                <span style="font-size: 1.25rem;">📷</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-tip">
+                <div class="tip-card">
+                    <p class="tip-text">
+                        <span class="tip-highlight">Pro tip:</span> 
+                        For the fastest response, send me an email with your project details. 
+                        I typically respond within 24 hours!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                © 2025 Ankur Kanaujiya. Built with passion and precision.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                const mobileNav = document.getElementById('mobileNav');
+                if (mobileNav && mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                }
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (mobileNav && mobileNav.classList.contains('active') && 
+                !mobileNav.contains(event.target) && 
+                !menuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'hsl(var(--background) / 0.95)';
+            } else {
+                navbar.style.background = 'hsl(var(--background) / 0.8)';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.card, .section');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
